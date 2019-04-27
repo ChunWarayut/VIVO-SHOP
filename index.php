@@ -1,5 +1,9 @@
 <?PHP
-
+session_start();  
+	if(!isset($_REQUEST['content'])){
+		$_REQUEST['content'] = "home";
+	}
+	$content = $_REQUEST['content']; 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +33,9 @@
         <div class="nav-scroller py-1 mb-2">
             <nav class="nav d-flex justify-content-between">
                 <a class="p-2 text-muted" href="#"></a>
-                <a class="p-2 text-muted" href="#">หน้าหลัก</a>
+                <a class="p-2 text-muted" href="index.php">หน้าหลัก</a>
                 <a class="p-2 text-muted" href="#">ข้อมูลสมาชิก</a>
-                <a class="p-2 text-muted" href="#">รายการสินค้า</a>
+                <a class="p-2 text-muted" href="index.php?content=product_type">รายการสินค้า</a>
                 <a class="p-2 text-muted" href="#">การชำระเงิน</a>
                 <a class="p-2 text-muted" href="#">รายงาน</a>
                 <a class="p-2 text-muted" href="#"></a>
@@ -39,21 +43,7 @@
         </div>
 
         <div>
-            <h1>My first styled page</h1>
-
-            <p>Welcome to my styled page!</p>
-
-            <p>It lacks images, but at least it has style.
-                And it has links, even if they don't go
-                anywhere&hellip;</p>
-
-            <p>There should be more here, but I don't know
-                what yet.</p>
-
-            <!-- Sign and date the page, it's only polite! -->
-            <address>Made 5 April 2004<br>
-                by myself.
-            </address>
+            <?php require_once("views/body.inc.php"); ?>
         </div>
 
     </div>
@@ -74,7 +64,11 @@
 </html>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+
 body {
     background-color: initial;
+    font-family: 'Kanit', sans-serif;
+    /* text-shadow: 4px 4px 4px #aaa; */
 }
 </style>
